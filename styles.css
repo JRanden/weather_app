@@ -1,0 +1,40 @@
+:root{
+    --main: #011627;
+    --secondary: #FFF8F0;
+    --accent: #705D56;
+
+}
+
+body {
+    background-color: var(--main);
+}
+
+h1{
+    color: var(--secondary);
+}
+
+::placeholder{
+    color:var(--secondary);
+    opacity: 0.8;
+}
+
+input, input [type=text] {
+    background-color: var(--main);
+    border-bottom: 5px solid var(--secondary);
+    color:var(--secondary);
+
+}
+
+button{
+    background-color: var(--accent);
+    color: var(--secondary);
+    border-color: var(--secondary);
+    border-style: solid;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-width: 1px;
+    border-radius: 15px;
+}
+
+
