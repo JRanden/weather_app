@@ -2,6 +2,8 @@
     --main: #011627;
     --secondary: #FFF8F0;
     --accent: #705D56;
+    font-family: 'Inter', sans-serif; 
+    color: var(--secondary);
 
 }
 
@@ -9,9 +11,6 @@ body {
     background-color: var(--main);
 }
 
-h1{
-    color: var(--secondary);
-}
 
 ::placeholder{
     color:var(--secondary);
@@ -20,21 +19,43 @@ h1{
 
 input, input [type=text] {
     background-color: var(--main);
-    border-bottom: 5px solid var(--secondary);
+    border: 0;
+    outline: 0;
+    width: 15%;
+    border-bottom: 2px solid var(--secondary);
     color:var(--secondary);
+    font-size: 1.3rem;
+    margin-right: 15px;
 
 }
 
 button{
-    background-color: var(--accent);
-    color: var(--secondary);
-    border-color: var(--secondary);
-    border-style: solid;
-    padding: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-width: 1px;
-    border-radius: 15px;
+    background-color: var(--secondary);
+    color: var(--main);
+    border-style: none;
+    padding: 5px;
+    width: 15%;
+    margin-top: 10px;
+    border-width: 3px;
+    border-radius: 8px;
+    font-size: 1rem;
+    align-self: center;
 }
 
+#searchButton svg {
+    fill: var(--main);
+} 
+
+#wicon{
+    display: none;
+}
+
+.displayArea{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
 
