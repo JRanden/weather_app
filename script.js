@@ -1,22 +1,37 @@
 let input = document.getElementById("searchField")
 let inputButton = document.getElementById("searchButton")
 let dropButton = document.getElementById("dropButton")
+let dropContent = document.getElementById("myDropdown")
 
 let i = 0
-inputButton.addEventListener("click", getValue);
+dropContent.addEventListener("click", recentValue)
+inputButton.addEventListener("click", value)
 dropButton.addEventListener("click", toggleDropDown)
 
 input.onkeydown = function (e) {
     if (e.key === 'Enter') {
-        getValue()
+        value()
     }
     
 }
 
-function getValue() {
-    //Initalizing and fetching API
+function value() {
+    let myValue = document.getElementById("searchField").value
 
-    let myCity = document.getElementById("searchField").value
+    getValue(myValue)
+}
+
+function recentValue() {
+    let myValue = document.getElementById("dropDownText").innerText
+
+    getValue(myValue)
+}
+
+
+function getValue(myValue) {
+    //Initalizing and fetching API
+    let search = document.getElementById("searchField")
+    let myCity = myValue
     let myKey = "2e7ab11015602d7d8c302c7e61e44627"
     let myAPI =`https://api.openweathermap.org/data/2.5/weather?q=${myCity}&units=metric&appid=${myKey}`
     let showCity = document.getElementById("showCity")
@@ -37,12 +52,13 @@ function getValue() {
     var src = document.getElementById("icon");
     img.style.display = "block"
     src.appendChild(img);
-    // Show information on screen
+    // Show information on screen and change searchfield value too match
     showCity.textContent = `${data.name}, ${data.sys.country}`
     showTemp.textContent = `${data.main.temp}°` 
     showFeelsLike.textContent = `Feels like ${data.main.feels_like}°`
     showWeather.textContent = `${data.weather[0].description}`
     showMaxMin.textContent = `H:${data.main.temp_max}° / L:${data.main.temp_min}°`
+    search.value = `${data.name}, ${data.sys.country}`
     // Recent Search
     recentSearch(myCity,data.sys.country)
 
